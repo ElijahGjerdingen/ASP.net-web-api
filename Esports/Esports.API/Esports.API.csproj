@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Classes\ProductQueryParameters.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Models\NewFile.txt" />
   </ItemGroup>
 
