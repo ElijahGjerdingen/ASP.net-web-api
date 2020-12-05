@@ -70,5 +70,54 @@ namespace Esports.API.Controllers
             }
             return Ok(player);
         }
+        [HttpPost]
+        public async Task<ActionResult<Player>> PostPlayer([FromBody]Player player)
+        {
+            _context.Players.Add(player);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(
+                "GetPlayer",
+                new { id = player.Id },
+                player);
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutPlayer([FromRoute] int id, [FromBody] Player player)
+        {
+            if (id != player.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(player).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if(_context.Players.Find(id) == null)
+                {
+                    return NotFound();
+                }
+                throw;
+            }
+            return NoContent();
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Player>> DeletePlayer(int id)
+        {
+            var player = await _context.Players.FindAsync(id);
+
+            if (player == null)
+            { 
+                return NotFound(); 
+            }
+
+            _context.Players.Remove(player);
+            await _context.SaveChangesAsync();
+            return player;
+        }
     }
 }
