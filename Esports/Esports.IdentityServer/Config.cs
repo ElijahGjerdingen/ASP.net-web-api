@@ -1,43 +1,61 @@
-﻿using IdentityServer4.Models;
-using System;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Esports.IdentityServer
 {
-     public class Config
+    public static class Config
     {
-        public static IEnumerable<ApiResource> Apis
-        {
-            get
+        public static IEnumerable<IdentityResource> IdentityResources =>
+            new List<IdentityResource>
             {
-                return new List<ApiResource>
-                {
-                new ApiResource("es-api", "es-api")
-                };
-            }
-        }
+                new IdentityResources.OpenId(),
+                new IdentityResources.Profile(),
+            };
 
-        public static IEnumerable<Client> Clients
-        {
-            get {
-                return new List<Client>
-                {
-                    new Client
-                    {
-                        ClientId = "client",
-                        AllowedScopes = { "es-api" },
 
-                        AllowedGrantTypes = GrantTypes.ClientCredentials,
-                        ClientSecrets =
-                        {
-                            new Secret("ESport".Sha256())
-                        }
-                    }
-                };
-            }
-        }
+        public static IEnumerable<ApiScope> ApiScopes =>
+            new List<ApiScope>
+            {
+                new ApiScope("es-api", "My API")
+            };
+
+        public static IEnumerable<Client> Clients =>
+            new List<Client>
+            {
+                // machine to machine client
+                new Client
+                {
+                    ClientId = "client",
+                    ClientSecrets = { new Secret("ESport".Sha256()) },
+
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    // scopes that client has access to
+                    AllowedScopes = { "es-api" }
+                }
+                
+                // interactive ASP.NET Core MVC client
+                //new Client
+                //{
+                //    ClientId = "mvc",
+                //    ClientSecrets = { new Secret("secret".Sha256()) },
+
+                //    AllowedGrantTypes = GrantTypes.Code,
+                    
+                //    // where to redirect to after login
+                //    RedirectUris = { "https://localhost:5002/signin-oidc" },
+
+                //    // where to redirect to after logout
+                //    PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
+
+                //    AllowedScopes = new List<string>
+                //    {
+                //        IdentityServerConstants.StandardScopes.OpenId,
+                //        IdentityServerConstants.StandardScopes.Profile
+                //    }
+                //}
+            };
     }
 
 }

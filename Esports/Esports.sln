@@ -3,10 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Esports.API", "Esports.API\Esports.API.csproj", "{ED1554F9-E6A1-42F9-B9D8-6122084E31FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Esports.web", "Esports.web\Esports.web.csproj", "{4320EB8C-BA49-4888-96E7-DA33A23AC5CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Esports.IdentityServer", "Esports.IdentityServer\Esports.IdentityServer.csproj", "{F4483B74-24F7-4763-9189-AA0A47B5DF1D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Esports.ConsoleApp", "Esports.ConsoleApp\Esports.ConsoleApp.csproj", "{37F2D3AC-F0F5-457C-B9BD-355CCDB1C115}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED1554F9-E6A1-42F9-B9D8-6122084E31FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED1554F9-E6A1-42F9-B9D8-6122084E31FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED1554F9-E6A1-42F9-B9D8-6122084E31FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED1554F9-E6A1-42F9-B9D8-6122084E31FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4320EB8C-BA49-4888-96E7-DA33A23AC5CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4320EB8C-BA49-4888-96E7-DA33A23AC5CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4320EB8C-BA49-4888-96E7-DA33A23AC5CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4320EB8C-BA49-4888-96E7-DA33A23AC5CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4483B74-24F7-4763-9189-AA0A47B5DF1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4483B74-24F7-4763-9189-AA0A47B5DF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4483B74-24F7-4763-9189-AA0A47B5DF1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4483B74-24F7-4763-9189-AA0A47B5DF1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F2D3AC-F0F5-457C-B9BD-355CCDB1C115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F2D3AC-F0F5-457C-B9BD-355CCDB1C115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F2D3AC-F0F5-457C-B9BD-355CCDB1C115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F2D3AC-F0F5-457C-B9BD-355CCDB1C115}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

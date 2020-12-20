@@ -17,6 +17,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Options;
 using Esports.API.Classes;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Esports.API
 {
@@ -58,8 +59,20 @@ namespace Esports.API
                 {
                     options.Authority = "http://localhost:61331";
                     options.RequireHttpsMetadata = false;
-                    options.Audience = "es-api";
+                    //options.Audience = "es-api";
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
                 });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ApiScope", policy =>
+                {
+                    //policy.RequireAuthenticatedUser();
+                    policy.RequireClaim("scope", "es-api");
+                });
+            });
 
             services.AddCors(options =>
             {
